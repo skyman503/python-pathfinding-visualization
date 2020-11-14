@@ -44,13 +44,13 @@ def main(win, width):
                 elif node == end_node:
                     end_node = None
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE and start_node and end_node and not working:
+                if event.key == pygame.K_a and start_node and end_node and not working:
                     working = True
                     for row in grid:
                         for node in row:
                             node.update_neighbors(grid)
                     astar.algorithm(lambda: grid_object.draw(win), grid, start_node, end_node)
-                if event.key == pygame.K_a and start_node and end_node and not working:
+                if event.key == pygame.K_d and start_node and end_node and not working:
                     dijkstra.dijkstra(grid_object, start_node, end_node, WIN)
                     shortest_path = dijkstra.get_shortest_path(end_node)
                     for node in shortest_path:
